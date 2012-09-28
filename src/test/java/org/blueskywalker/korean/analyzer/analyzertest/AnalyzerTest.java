@@ -1,18 +1,11 @@
 package org.blueskywalker.korean.analyzer.analyzertest;
 
+
 import java.io.IOException;
 import java.io.StringReader;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.analysis.standard.StandardFilter;
-import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
-import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
-import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
-import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
-import org.apache.lucene.util.Version;
 
 /**
  * Unit test for simple App.
@@ -43,12 +36,19 @@ public class AnalyzerTest
 
         String field="test";
         String source = "너무 너무beautiful한 정서적인나무가 아닌가 싶네요.";
-       // source = "Once you have tests, you'll want to run them. JUnit provides tools to define the suite to be run and to display its results. To run tests and see the results on the console, run this from a Java program";
+        // source = "Once you have tests, you'll want to run them.";
 
 
-        TestAnalyzer analyzer = new TestWhitespaceAnalyzer(field, new StringReader(source));
-        
-        analyzer.analyze();
+        TestAnalyzer [] analyzers = {
+            new TestWhitespaceAnalyzer(field, new StringReader(source)),
+            new TestSimpleAnalyzer(field, new StringReader(source)),
+            new TestKeywordAnalyzer(field,new StringReader(source)),
+            new TestStopwordAnalyzer(field, new StringReader(source))
+        };
+                
+        for(TestAnalyzer analyzer : analyzers) {  
+            analyzer.analyze();
+        }
         
         assertTrue(true);
     }

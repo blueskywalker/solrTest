@@ -33,17 +33,8 @@ public class TestWhitespaceAnalyzer extends TestAnalyzer {
 
     @Override
     public void analyze() throws IOException {
-
-        while (token.incrementToken()) {
-
-            CharTermAttribute termAttr = tokenStream.getAttribute(CharTermAttribute.class);
-            OffsetAttribute offAttr = tokenStream.getAttribute(OffsetAttribute.class);
-            //  PositionIncrementAttribute posAttr = tokenStream.getAttribute(PositionIncrementAttribute.class);
-            //  TypeAttribute typeAttr = tokenStream.getAttribute(TypeAttribute.class);
-
-            int len = offAttr.endOffset() - offAttr.startOffset();
-            System.out.printf("%d:%d:%s\n", offAttr.startOffset(),
-                    offAttr.endOffset(), new String(termAttr.buffer()).substring(0, len));
-        }
+        defaultAnalysis();
     }
+
+
 }
