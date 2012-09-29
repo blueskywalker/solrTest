@@ -43,7 +43,7 @@ public abstract class TestAnalyzer {
 
             int len = offAttr.endOffset() - offAttr.startOffset();
             System.out.printf("%d:%d:%s\n", offAttr.startOffset(),
-                    offAttr.endOffset(), new String(termAttr.buffer()).substring(0, len));
+                    offAttr.endOffset(), termAttr.toString());
         }
 
     }
