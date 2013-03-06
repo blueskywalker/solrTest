@@ -18,7 +18,7 @@ import org.apache.lucene.collation.ICUCollationKeyAnalyzer;
 
 public class TestICUAnalyzer extends TestAnalyzer {
 
-    public TestICUAnalyzer(String field, Reader reader) {
+    public TestICUAnalyzer(String field, Reader reader) throws IOException {
         super(field, reader);
         
         Collator coll = Collator.getInstance();

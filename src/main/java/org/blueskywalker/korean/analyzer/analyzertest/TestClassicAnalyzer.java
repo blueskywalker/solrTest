@@ -14,7 +14,7 @@ import org.apache.lucene.analysis.standard.ClassicAnalyzer;
  */
 public class TestClassicAnalyzer extends TestAnalyzer {
 
-    public TestClassicAnalyzer(String field,Reader reader) {
+    public TestClassicAnalyzer(String field,Reader reader) throws IOException {
         super(field, reader);
         analyzer = new ClassicAnalyzer(version);
         tokenStream = analyzer.tokenStream(field, reader);

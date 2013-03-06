@@ -17,7 +17,7 @@ public abstract class TestAnalyzer {
     Analyzer analyzer;
     TokenStream tokenStream;
     TokenStream token;
-    final static Version version = Version.LUCENE_36;
+    final static Version version = Version.LUCENE_CURRENT;
 
     /**
      *

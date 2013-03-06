@@ -14,7 +14,7 @@ import org.apache.lucene.analysis.snowball.SnowballAnalyzer;
  */
 public class TestSnowballAnalyzer  extends TestAnalyzer {
 
-    public TestSnowballAnalyzer(String field,Reader reader) {
+    public TestSnowballAnalyzer(String field,Reader reader) throws IOException {
         super(field, reader);
         analyzer =  new SnowballAnalyzer(version, field);
         tokenStream = analyzer.tokenStream(field, reader);

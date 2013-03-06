@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.Reader;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.standard.StandardFilter;
-import org.blueskywalker.korean.analyzer.analyzertest.TestAnalyzer;
 
 /*
  * To change this template, choose Tools | Templates
@@ -18,7 +17,7 @@ import org.blueskywalker.korean.analyzer.analyzertest.TestAnalyzer;
  */
 public class TestStopwordAnalyzer extends TestAnalyzer {
     
-    public TestStopwordAnalyzer(String field,Reader reader) {
+    public TestStopwordAnalyzer(String field,Reader reader) throws IOException {
         super(field, reader);
         analyzer = new StandardAnalyzer(version);
         tokenStream = analyzer.tokenStream(field, reader);

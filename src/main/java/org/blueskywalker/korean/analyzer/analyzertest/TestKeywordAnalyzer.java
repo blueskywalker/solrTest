@@ -6,8 +6,8 @@ package org.blueskywalker.korean.analyzer.analyzertest;
 
 import java.io.IOException;
 import java.io.Reader;
-import org.apache.lucene.analysis.KeywordAnalyzer;
-import org.apache.lucene.analysis.LowerCaseFilter;
+import org.apache.lucene.analysis.core.KeywordAnalyzer;
+import org.apache.lucene.analysis.core.LowerCaseFilter;
 
 /**
  *
@@ -15,7 +15,7 @@ import org.apache.lucene.analysis.LowerCaseFilter;
  */
 public class TestKeywordAnalyzer extends TestAnalyzer {
 
-    public TestKeywordAnalyzer(String field,Reader reder) {
+    public TestKeywordAnalyzer(String field,Reader reder) throws IOException {
         super(field, reder);
         analyzer = new KeywordAnalyzer();
         tokenStream = analyzer.tokenStream(field, reder);
